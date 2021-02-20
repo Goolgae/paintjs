@@ -10,15 +10,15 @@ body {
 }
 
 .canvas {
-  width: 700px;
-  height: 700px;
+  width: 800px;
+  height: 800px;
   background-color: white;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .controls {
-  margin-top: 5rem;
+  margin-top: 3rem;
   display: flex;
   align-items: center;
 }
@@ -60,4 +60,36 @@ body {
 
 .controls__colors .controls__color + .controls__color {
   margin-left: 8px;
+}
+
+/** 굵기 이벤트 스타일링 **/
+
+.controls__thickness {
+  margin-left: 12px;
+  display: flex;
+}
+
+.controls__thickness button {
+  all: unset;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.controls__thickness button:active {
+  transform: scale(0.9);
+}
+
+.controls__thickness button:nth-child(1) {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.controls__thickness button:nth-child(2) {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
