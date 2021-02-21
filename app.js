@@ -5,10 +5,14 @@ const plus = document.getElementById("jsPlus");
 const minus = document.getElementById("jsMinus");
 const mode = document.getElementById("jsMode");
 
-canvas.width = 800;
-canvas.height = 800;
+const INITIAL_COLOR = "#2c2c2c";
+const CANVAS_SIZE = 800;
 
-ctx.strokeStyle = "#2c2c2c";
+canvas.width = CANVAS_SIZE;
+canvas.height = CANVAS_SIZE;
+
+ctx.strokeStyle = INITIAL_COLOR;
+ctx.fillStyle = INITIAL_COLOR;
 ctx.lineWidth = 3;
 
 let painting = false;
@@ -37,6 +41,7 @@ function onMouseMove(event) {
 function handleColorClick(event) {
   const color = event.target.style.backgroundColor;
   ctx.strokeStyle = color;
+  ctx.fillStyle = ctx.color;
 }
 
 function plusThickness() {
@@ -61,11 +66,18 @@ function handleModeClick() {
   }
 }
 
+function handleCanvasClick() {
+  if (filling) {
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+}
+
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("mousedown", startPainting);
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
+  canvas.addEventListener("click", handleCanvasClick);
 }
 
 if (plus) {
